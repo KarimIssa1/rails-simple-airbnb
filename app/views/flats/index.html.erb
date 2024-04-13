@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h1>Available Flats</h1>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <% if flat.picture_url.present? %>
+            <%= image_tag(flat.picture_url, class: "card-img-top", alt: "#{flat.name} Image") %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= flat.name %></h5>
+            <p class="card-text"><%= flat.description %></p>
+            <a href="<%= flat_path(flat) %>" class="btn btn-primary">More Details</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
